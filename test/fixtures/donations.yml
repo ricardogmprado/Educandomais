@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  donator: one
+  quantity_donated: 1
+  status: MyString
+  status: MyString
+
+two:
+  project: two
+  donator: two
+  quantity_donated: 1
+  status: MyString
+  status: MyString
