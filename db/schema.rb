@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_015846) do
+ActiveRecord::Schema.define(version: 2019_08_28_072930) do
 
   create_table "donations", force: :cascade do |t|
     t.integer "project_id"
     t.integer "donator_id"
     t.integer "quantity_donated"
-    t.string "status"
+    t.string "status", default: "aguardando doação"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["donator_id"], name: "index_donations_on_donator_id"

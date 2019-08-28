@@ -7,8 +7,6 @@ Rails.application.routes.draw do
     resources :photos, only: [:create]
     resources :donators, only: [:index]
   end
-
-
   resources :payments, only: [:new]
 
   root to: 'pages#home'

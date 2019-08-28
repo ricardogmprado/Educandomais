@@ -1,4 +1,4 @@
-   <%= simple_form_for [@donation, @project] do |f| %>
+   <%= simple_form_for [@project, @donation] do |f| %>
       <%= f.input :status %>
       <%= f.input :quantity_donated %>
       <%= f.submit "Add a Review", class: "btn btn-primary d-flex justify-content-center" %>
