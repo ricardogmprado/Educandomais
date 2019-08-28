@@ -9,9 +9,12 @@ class DonationsController < ApplicationController
   end
 
   def create
+    @project = Project.find(params[:project_id])
     @donation = Donation.new(donation_params)
-    @donator = Donator.find(params[:donator_id])
-    @project.donator = @donator
+    @donation.project = @project
+    @user = current_donator
+    @donation.donator = @user
+    # raise
     if @donation.save
       redirect_to project_path(@project)
     else render :new
@@ -19,12 +22,19 @@ class DonationsController < ApplicationController
   end
 
   def update
+    if @donation.update(donation_params)
+      redirect_to project_path(@project), notice: 'A doação foi atualizada'
+    else
+      render :edit
+    end
   end
 
   def edit
     @project = Project.find(params[:project_id])
-    # @donation = Donation.find(params[:id])
-
+    @donation = Donation.find(params[:id])
+    @donation.project = @project
+    @user = current_teacher
+    @project.teacher = @user
   end
 
   private

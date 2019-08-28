@@ -8,6 +8,7 @@
 <p>Data limite para doação:<%= @project.limit_date %></p>
 <p><%= link_to "Editar projeto", edit_project_path(@project)  %></p>
 <p><%= link_to "Voltar a projetos", projects_path %></p>
+
 <p><%= link_to "Doe material", new_project_donation_path(@project) %></p>
 
 <h1>Perfil do professor</h1>
@@ -21,8 +22,8 @@
 <p><%= donation.donator.name %></p>
 <p><%= donation.status %></p>
 <p><%= donation.quantity_donated %></p>
+<p><%= link_to "Editar status da doação", edit_project_donation_path(donation.project) %></p>
 <% end %>
-<p><%= link_to "Editar status da doação", edit_project_donation_path(@project) %></p>
 
 
 
