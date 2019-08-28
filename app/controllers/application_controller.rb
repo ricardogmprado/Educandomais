@@ -1,23 +1,13 @@
-require 'donators/parameter_sanitizer'
-require 'teachers/parameter_sanitizer'
 class ApplicationController < ActionController::Base
-  before_action :configure_permitted_parameters, if: :devise_controller?
-  # def after_sign_in_path_for(teacher)
-  #   if teacher.registration_code.nil?
-  #     edit_teacher_registration_path
-  #   else
-  #     new_project_path
-  #   end
-  # end
+  before_action :configure_teacher_permitted_parameters, if: :teachers_devise_controller?
+  before_action :configure_donator_permitted_parameters, if: :donators_devise_controller?
 
-  def configure_permitted_parameters
-    # For additional fields in app/views/devise/registrations/new.html.erb
-    if resource_class == Donator
-      Donator::ParameterSanitizer.new(Donator, :donator, @params)
-    else
-      Teacher::ParameterSanitizer.new(Teacher, :teacher, @params)
-    end
-  end
+def teachers_devise_controller?
+  params[:controller] =~ /teachers/
+end
+
+def donators_devise_controller?
+  params[:controller] =~ /donators/
 end
 
 #   def configure_permitted_parameters
@@ -29,3 +19,4 @@ end
 #       devise_parameter_sanitizer.permit(:account_update, keys: [:name, :last_name, :registration_code, :course, :telephone])
 #   end
 # end
+end

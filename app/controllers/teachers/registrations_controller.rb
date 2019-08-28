@@ -6,11 +6,8 @@ class Teachers::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def sign_up_params_teachers
+  def configure_teacher_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys:[:name, :last_name, :email, :password, :password_confirmation, :registration_code, :course, :telephone])
-  end
-
-  def account_update_params_teachers
     devise_parameter_sanitizer.permit(:account_update, keys:[:name, :last_name, :email, :password, :password_confirmation, :registration_code, :course, :telephone])
   end
 end
