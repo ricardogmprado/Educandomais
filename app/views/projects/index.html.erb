@@ -1,1 +1,8 @@
-index.html.erb
+<%= link_to "Home", root_path %>
+
+
+<% @projects.each do |project| %>
+ <h1><%= link_to project.title, project_path(project) %></h1>
+<p><%= project.category %></p>
+<p><%= project.limit_date %></p>
+<% end %>

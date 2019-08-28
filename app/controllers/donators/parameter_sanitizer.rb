@@ -1,0 +1,6 @@
+class Donator::ParameterSanitizer < Devise::ParameterSanitizer
+  def initialize(*)
+    super
+    permit(:sign_up, keys: [:name, :last_name, :cpf, :telephone])
+  end
+end

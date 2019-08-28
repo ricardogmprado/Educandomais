@@ -4,3 +4,5 @@ class Donation < ApplicationRecord
   validates :quantity_donated, presence: true
   validates :status, presence: true
 end
+
+

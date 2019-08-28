@@ -1,1 +1,18 @@
-new.html.erb
+<div class="project-form">
+  <h1>Crie uma solicitação para seu projeto</h1>
+  <p>Sua sala de aula, ou a escola para qual trabalha, precisa de doação de algum material? Seja ele material escolar, material para obras de expansão, renovação e construção de espaços ou itens básicos para o funcionamento do dia a dia de uma escola?</p>
+  <%= simple_form_for @project, html: { class: 'project-form' } do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :category %>
+    <%= f.input :material %>
+    <%= f.input :quantity%>
+    <%= f.input :average_unit_price %>
+    <%= f.input :school_year%>
+    <%= f.input :limit_date %>
+
+    <%#= f.input :photo %>
+    <%= f.button :submit, class: 'btn btn-outline-success' %>
+  <% end %>
+  <%= link_to "Exibir projetos", projects_path, class: 'btn', id:'back-to-project' %>
+</div>

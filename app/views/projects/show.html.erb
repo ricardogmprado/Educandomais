@@ -1,1 +1,28 @@
-show.html.erb
+<h1>Detalhes do projeto</h1>
+<h3><%= @project.title %></h3>
+<p>Material solicitado:<%= @project.material %></p>
+<p>Quantidade solicitada<%= @project.quantity %></p>
+<p>Preço médio:<%= @project.average_unit_price %></p>
+<p>Categoria:<%= @project.category %></p>
+<p>Ano letivo:<%= @project.school_year %></p>
+<p>Data limite para doação:<%= @project.limit_date %></p>
+<p><%= link_to "Editar projeto", edit_project_path(@project)  %></p>
+<p><%= link_to "Voltar a projetos", projects_path %></p>
+<p><%= link_to "Doe material", new_project_donation_path(@project) %></p>
+
+<h1>Perfil do professor</h1>
+<p><%= @project.teacher.name %></p>
+<p><%= @project.teacher.last_name %></p>
+<p><%#= @project.teacher.school.name %></p>
+
+
+<h1>Doações recebidas</h1>
+<% @project.donations.each do |donation| %>
+<p><%= donation.donator.name %></p>
+<p><%= donation.status %></p>
+<p><%= donation.quantity_donated %></p>
+<% end %>
+<p><%= link_to "Editar status da doação", edit_project_donation_path(@project) %></p>
+
+
+

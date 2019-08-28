@@ -1,25 +1,17 @@
-<div class="form-criar-projeto">
-  <h1>Crie uma solicitação para seu projeto</h1>
-  <p>Sua sala de aula, ou a escola para qual trabalha, precisa de doação de algum material? Seja ele material escolar, material para obras de expansão, renovação e construção de espaços ou itens básicos para o funcionamento do dia a dia de uma escola?</p>
-  <%= simple_form_for @projeto, html: { class: 'form-projeto' } do |f| %>
-    <%= f.input :titulo %>
-    <%= f.input :descricao, as: :text %>
-    <%= f.input :categoria %>
-    <%= f.input :material_solic %>
-    <%= f.input :quanti_solic %>
-    <%= f.input :preco_uni_medio %>
-    <%= f.input :preco_uni_medio %>
-    <%= f.input :categoria %>
-    <%= f.input :ano_letivo %>
-    <%#= f.input :data %>
-    <%#= f.input :latitude, as: :hidden %>
-    <%#= f.input :longitude, as: :hidden %>
-    <%#= f.input :gender %>
-    <%#= f.input :min_age %>
-    <%#= f.input :max_age %>
+<div class="project-form">
+  <h1>Edite seu projeto</h1>
+  <%= simple_form_for @project, html: { class: 'project-form' } do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :category %>
+    <%= f.input :material %>
+    <%= f.input :quantity%>
+    <%= f.input :average_unit_price %>
+    <%= f.input :school_year%>
+    <%= f.input :limit_date %>
 
     <%#= f.input :photo %>
     <%= f.button :submit, class: 'btn btn-outline-success' %>
   <% end %>
-  <%= link_to "Exibir projetos", projetos_path, class: 'btn', id:'retornar-projetos' %>
+  <%= link_to "Voltar ao projeto", project_path(@project), class: 'btn', id:'back-to-project' %>
 </div>

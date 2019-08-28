@@ -1,12 +1,13 @@
-class ProjetosController < ApplicationController
+class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update]
   def index
-    @project = Project.all
+    @projects = Project.all
     # @projetos = policy_scope(project)
   end
 
   def show
     # authorize @project
+    # raise
   end
 
   def new
@@ -15,20 +16,22 @@ class ProjetosController < ApplicationController
   end
 
   def create
-    @project = project.new(projeto_params)
+    @project = Project.new(project_params)
+    @user = current_teacher
+    @project.teacher = @user
     # authorize @project
-    # @project.user = current_user
 
     if @project.save
       redirect_to project_path(@project), notice: 'Seu projeto foi criado'
     else
       render :new
     end
+    # # raise
   end
 
   def update
     # authorize @project
-    if project.update(projeto_params)
+    if @project.update(project_params)
       redirect_to project_path(@project), notice: 'Seu projeto foi atualizado'
     else
       render :edit
@@ -41,11 +44,11 @@ class ProjetosController < ApplicationController
 
   private
 
-  def set_projeto
-    @project = project.find(params[:id])
+  def set_project
+    @project = Project.find(params[:id])
   end
 
-  def projeto_params
+  def project_params
     params.require(:project).permit(:title, :description, :material, :quantity, :average_unit_price, :category, :limit_date, :school_year)
   end
 end

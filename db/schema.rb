@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_051437) do
+ActiveRecord::Schema.define(version: 2019_08_22_015846) do
 
   create_table "donations", force: :cascade do |t|
     t.integer "project_id"
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2019_08_21_051437) do
     t.float "longitude"
     t.string "address"
     t.string "name"
-    t.string "neighbourhood"
     t.string "city"
     t.string "state"
     t.string "zipcode"
@@ -100,8 +99,10 @@ ActiveRecord::Schema.define(version: 2019_08_21_051437) do
     t.string "registration_code"
     t.string "course"
     t.string "telephone"
+    t.integer "school_id"
     t.index ["email"], name: "index_teachers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
+    t.index ["school_id"], name: "index_teachers_on_school_id"
   end
 
 end

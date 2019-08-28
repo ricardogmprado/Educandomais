@@ -1,9 +1,16 @@
 # frozen_string_literal: true
 
 class Donators::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
+def sign_up_params_donators
+    devise_parameter_sanitizer.permit(:sign_up, keys:[:name, :last_name, :email, :password, :password_confirmation, :cpf, :telephone])
+  end
+
+  def account_update_params_donators
+    devise_parameter_sanitizer.permit(:account_update, keys:[:name, :last_name, :email, :password, :password_confirmation, :cpf, :telephone])
+  end
   # GET /resource/sign_up
   # def new
   #   super

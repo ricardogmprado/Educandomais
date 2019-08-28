@@ -1,5 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :teacher
+  has_many :donations
+  has_many :donators, through: :donations
   validates :title, presence: true
   validates :description, presence: true
   validates :material, presence: true
