@@ -3,7 +3,7 @@ class Teacher < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  # belongs_to :school
+  belongs_to :school
   has_many :projects, dependent: :destroy
   has_many :donation, through: :projetos
   validates :name, presence: true
