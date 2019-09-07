@@ -18,4 +18,3 @@ def scraper
   byebug
 end
 
-scraper

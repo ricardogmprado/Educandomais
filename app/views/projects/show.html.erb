@@ -1,3 +1,5 @@
+<p><%= link_to "Voltar a projetos", projects_path %></p>
+
 <h1>Detalhes do projeto</h1>
 <h3><%= @project.title %></h3>
 <p>Material solicitado:<%= @project.material %></p>
@@ -6,24 +8,29 @@
 <p>Categoria:<%= @project.category %></p>
 <p>Ano letivo:<%= @project.school_year %></p>
 <p>Data limite para doação:<%= @project.limit_date %></p>
+<% if policy(@project).edit? %>
 <p><%= link_to "Editar projeto", edit_project_path(@project)  %></p>
-<p><%= link_to "Voltar a projetos", projects_path %></p>
+<% end %>
+
 
 <p><%= link_to "Doe material", new_project_donation_path(@project) %></p>
+
 
 <h1>Perfil do professor</h1>
 <p><%= @project.teacher.name %></p>
 <p><%= @project.teacher.last_name %></p>
 <p><%#= @project.teacher.school.name %></p>
 
-
+<% if (@project.teacher == current_teacher)%>
 <h1>Doações recebidas</h1>
 <% @project.donations.each do |donation| %>
 <p><%= donation.donator.name %></p>
 <p><%= donation.status %></p>
 <p><%= donation.quantity_donated %></p>
-<p><%= link_to "Editar status da doação", edit_project_donation_path(donation.project) %></p>
+<p><%= link_to "Editar status da doação", edit_project_donation_path(donation.project, donation) %></p>
 <% end %>
+<% end %>
+
 
 
 
