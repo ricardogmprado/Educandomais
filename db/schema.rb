@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_072930) do
+ActiveRecord::Schema.define(version: 2019_09_07_044137) do
 
   create_table "donations", force: :cascade do |t|
     t.integer "project_id"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_072930) do
     t.date "limit_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "Aberto"
     t.index ["teacher_id"], name: "index_projects_on_teacher_id"
   end
 
