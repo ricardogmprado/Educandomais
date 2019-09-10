@@ -2,6 +2,11 @@
 
 
 <% @projects.each do |project| %>
+<% if project.project_photos.nil? %>
+<%= no photo %>
+<% else %>
+<%= cl_image_tag project.project_photos[0], height: 300, width: 400, crop: :fill %>
+<% end %>
  <h1><%= link_to project.title, project_path(project) %></h1>
 <p><%= project.category %></p>
 <p><%= project.limit_date %></p>
