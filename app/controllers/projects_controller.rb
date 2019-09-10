@@ -67,7 +67,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :description, :material, :quantity, :project_photos => [])
+    params.require(:project).permit(:title, :description, :material, :quantity, :average_unit_price, :category, :limit_date, project_photos: [])
   end
 
   def save_photos
