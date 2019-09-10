@@ -1,5 +1,15 @@
 <p><%= link_to "Voltar a projetos", projects_path %></p>
 
+<div class="row">
+  <% @project.project_photos.each do |p| %>
+  <div class="col-md-4 py-2">
+    <div class="act-photos">
+      <%= cl_image_tag p.photo, height: 200, crop: :fill, g: :face, class: 'project-photo' %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
 <h1>Detalhes do projeto</h1>
 <h3><%= @project.title %></h3>
 <p>Material solicitado:<%= @project.material %></p>

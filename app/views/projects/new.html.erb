@@ -11,7 +11,9 @@
     <%= f.input :school_year%>
     <%= f.input :limit_date %>
 
-    <%#= f.input :photo %>
+    <%= f.simple_fields_for :project_photo, ProjectPhoto.new do |photo_form| %>
+    <%= photo_form.file_field :project_photo, multiple: true, name: "project_photos[]" %>
+    <% end %>
     <%= f.button :submit, class: 'btn btn-outline-success' %>
   <% end %>
   <%= link_to "Exibir projetos", projects_path, class: 'btn', id:'back-to-project' %>

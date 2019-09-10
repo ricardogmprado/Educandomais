@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :teacher
+  has_many :project_photos, dependent: :destroy
   has_many :donations
   has_many :donators, through: :donations
   validates :title, presence: true
@@ -9,6 +10,8 @@ class Project < ApplicationRecord
   validates :average_unit_price, presence: true
   validates :category, presence: true
   validates :limit_date, presence: true
+
+  accepts_nested_attributes_for :project_photos
 
   def completed_project(quantity, total_donations)
     if total_donations > quantity

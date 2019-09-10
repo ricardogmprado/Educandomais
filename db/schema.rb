@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_07_044137) do
+ActiveRecord::Schema.define(version: 2019_09_09_053743) do
 
   create_table "donations", force: :cascade do |t|
     t.integer "project_id"
@@ -43,19 +43,19 @@ ActiveRecord::Schema.define(version: 2019_09_07_044137) do
     t.integer "donator_id"
     t.string "status"
     t.date "date"
-    t.integer "value"
     t.string "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "value_cents", default: 0, null: false
     t.index ["donator_id"], name: "index_payments_on_donator_id"
   end
 
-  create_table "photos", force: :cascade do |t|
+  create_table "project_photos", force: :cascade do |t|
+    t.string "photo"
     t.integer "project_id"
-    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_photos_on_project_id"
+    t.index ["project_id"], name: "index_project_photos_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|

@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     authorize @project
+    # raise
   end
 
   def create
@@ -21,11 +22,18 @@ class ProjectsController < ApplicationController
     @project.teacher = current_teacher
     # raise
     authorize @project
-    # raisse
+      if params[:project_photos].nil?
+      else
+      save_photos
+      end
+      # raise
+    @project.teacher.id = current_teacher.id
+    # raise
     if @project.save
+      # raise
       redirect_to project_path(@project), notice: 'Seu projeto foi criado'
     else
-      render :new
+      render 'projects/show'
     end
     # # raise
   end
@@ -59,6 +67,15 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :description, :material, :quantity, :average_unit_price, :category, :limit_date, :school_year)
+    params.require(:project).permit(:title, :description, :material, :quantity, :project_photos => [])
+  end
+
+  def save_photos
+      params[:project_photos].each do |photo|
+      project_photo = ProjectPhoto.new
+      project_photo.photo = photo
+      @project.project_photos << project_photo
+      project_photo.save
+    end
   end
 end

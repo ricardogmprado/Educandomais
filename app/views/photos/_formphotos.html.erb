@@ -1,0 +1,5 @@
+<%= form_for([@project, ProjectPhoto.new]) do |f| %>
+  <%= f.hidden_field :project_id, class: "project-photo-field"%>
+  <%= f.file_field :photo %>
+  <%= f.submit 'Upload picture', class: "btn-photo" %>
+<% end %>
