@@ -29,7 +29,7 @@ end
 puts 'seeding teachers'
 30.times do
   teacher = Teacher.new(
-    school: School.all.sample,
+    # school: School.all.sample,
     name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
@@ -87,7 +87,7 @@ puts 'seeding payments'
     donator: Donator.all.sample,
     status: payment_status.sample,
     date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    value: value_donated.sample
+    value_cents: value_donated.sample
   )
   payment.save
 end
