@@ -1,0 +1,44 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: #FBFBFB;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.banner p {
+  font-size: 20px;
+  color: #FBFBFB;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.btn-flat {
+  color: #FBFBFB;
+  // font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 4px;
+  // background: #DC965A;
+  background: #CC5803;
+  transition: background 0.3s ease;
+  width: 160px;
+}
+
+.btn-flat:hover {
+  background: #DC965A;
+  color: white;
+}
+
+.banner-btn {
+  text-align: center;
+}

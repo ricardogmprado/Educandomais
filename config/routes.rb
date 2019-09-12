@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :payments, only: [:new]
 
   root to: 'pages#home'
-  get '/institucional', to: 'pages#institucional', as: 'institucional'
+  get 'institucional', to: 'pages#institucional', as: :institucional
 end
