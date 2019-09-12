@@ -1,15 +1,28 @@
- <%= link_to "Exibir projetos", projects_path, class: 'btn', id:'back-to-project' %>
+<%= render 'shared/navbar' %>
 
-<%= link_to "Criar projeto", new_project_path, class: 'btn', id:'back-to-project' %>
+<div class="banner" style="background-image: url(<%=asset_path('blackboard.jpg')%>);">
+  <div class="container">
+    <h1>Garantir a qualidade do ensino público é um dever de todos</h1>
+    <p>Envolva-se com as necessidades de escolas públicas ao seu redor</p>
+    <div class="banner-btn">
+    <a class="btn btn-flat mr-4" href="/projects/new">Sou Professor</a>
+    <a class="btn btn-flat ml-4" href="#">Quero Ajudar</a>
+    </div>
+  </div>
+</div>
 
-<%= link_to "institucional", institucional_path, class: 'btn', id:'back-to-project' %>
+<div class="como-funciona-container">
+  <div class="como-funciona-texto">
+    <h1>Como Atuamos</h1>
+    <p>.......</p>
+    <div class="como-funciona-btn">
+      <a class="btn btn-flat mr-4" href="/projects/new">Sou Professor, quero criar projeto</a>
+      <a class="btn btn-flat ml-4" href="#">Quero encontrar projetos para ajudar</a>
+    </div>
+  </div>
+  <div class="como-funciona-foto">
 
-<%= link_to "Cadastro professor", new_teacher_registration_path, class: 'btn', id:'back-to-project' %>
+  </div>
+</div>
 
-<%= link_to "Log out professor", destroy_teacher_session_path, method: :delete, class: 'btn', id:'back-to-project' %>
-
-<%= link_to "Cadastro doador", new_donator_registration_path, class: 'btn', id:'back-to-project' %>
-
-
-<%= link_to "Log out doador", destroy_donator_session_path, method: :delete, class: 'btn', id:'back-to-project' %>
-
+<%= render 'shared/footer' %>

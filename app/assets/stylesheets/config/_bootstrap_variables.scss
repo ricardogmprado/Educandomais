@@ -1,34 +1,26 @@
 
-// Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap');
+// This is where you override default Bootstrap variables
+// 1. All Bootstrap variables are here => https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
+// 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
+// 3. You can override them below!
 
-// Define fonts for body and headers
-$body-font: "Montserrat", "sans-serif";
-$headers-font: "Montserrat", "sans-serif";
+// General style
+$font-family-sans-serif:  $body-font;
+$headings-font-family:    $headers-font;
+$body-bg:                 $light-gray;
+$font-size-base: 1rem;
 
-// // This is where you override default Bootstrap variables
-// // 1. All Bootstrap variables are here => https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
-// // 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
-// // 3. You can override them below!
+// Colors
+$body-color: $gray;
+$primary:    $blue;
+$success:    $green;
+$info:       $yellow;
+$danger:     $red;
+$warning:    $orange;
 
-// // General style
-// $font-family-sans-serif:  $body-font;
-// $headings-font-family:    $headers-font;
-// $body-bg:                 $light-gray;
-// $font-size-base: 1rem;
+// Buttons & inputs' radius
+$border-radius:    2px;
+$border-radius-lg: 2px;
+$border-radius-sm: 2px;
 
-// // Colors
-// $body-color: $gray;
-// $primary:    $blue;
-// $success:    $green;
-// $info:       $yellow;
-// $danger:     $red;
-// $warning:    $orange;
-
-// // Buttons & inputs' radius
-// $border-radius:    2px;
-// $border-radius-lg: 2px;
-// $border-radius-sm: 2px;
-
-// // Override other variables below!
+// Override other variables below!
