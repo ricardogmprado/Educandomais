@@ -81,13 +81,13 @@ puts 'seeding donations'
   donation.save
 end
 
-puts 'seeding payments'
-60.times do
-  payment = Payment.new(
-    donator: Donator.all.sample,
-    status: payment_status.sample,
-    date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    value_cents: value_donated.sample
-  )
-  payment.save
-end
+# puts 'seeding payments'
+# 60.times do
+#   payment = Payment.new(
+#     donator: Donator.all.sample,
+#     status: payment_status.sample,
+#     date: Faker::Date.between(from: 2.days.ago, to: Date.today),
+#     value_cents: value_donated.sample
+#   )
+#   payment.save
+# end
