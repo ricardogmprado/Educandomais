@@ -1,13 +1,39 @@
-<%= link_to "Home", root_path %>
+<%= render 'shared/navbar' %>
 
+<div class="project-container">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url(<%=asset_path('chalk.jpg')%>)">
+  PROJETOS ESCOLARES
+  </div>
 
-<% @projects.each do |project| %>
-<% if project.project_photos.nil? %>
-<%= no photo %>
-<% else %>
-<%= cl_image_tag project.project_photos[0], height: 300, width: 400, crop: :fill %>
-<% end %>
- <h1><%= link_to project.title, project_path(project) %></h1>
-<p><%= project.category %></p>
-<p><%= project.limit_date %></p>
-<% end %>
+  <div class="project-top">
+    <div class="project-title">
+      <h1>Encontre projetos para apoiar</h1>
+    </div>
+    <% if teacher_signed_in? %>
+    <div class="project-new-btn">
+      <a class="btn btn-flat mr-4" href="/projects/new">Criar novo projeto</a>
+    </div>
+    <% end %>
+  </div>
+  <div class="project-filters">
+
+  </div>
+  <div class="project-index">
+      <div class="project-cards">
+        <% @projects.each do |project| %>
+          <div class="project-card">
+            <% if project.project_photos[0].nil? %>
+               no photo
+            <% else %>
+              <div class="project-img">
+                <%= cl_image_tag project.project_photos[0].photo, crop: :fill, height: 350 %>
+              </div>
+            <% end %>
+            <h1><%= link_to project.title, project_path(project) %></h1>
+            <p><%= project.category %></p>
+            <p><%= project.limit_date %></p>
+          </div>
+          <% end %>
+      </div>
+  </div>
+</div>
