@@ -7,14 +7,14 @@ class School < ApplicationRecord
   validates :state, presence: true
 end
 
-require 'nokogiri'
-require 'open-uri'
-require 'byebug'
+# require 'nokogiri'
+# require 'open-uri'
+# require 'byebug'
 
-def scraper
-  url = 'http://www.educacao.sp.gov.br/central-de-atendimento/consulta.asp?'
-  unparsed_page = open(url).read
-  parsed_page = Nokogiri::HTML(unparsed_page)
-  byebug
-end
+# def scraper
+#   url = 'http://www.educacao.sp.gov.br/central-de-atendimento/consulta.asp?'
+#   unparsed_page = open(url).read
+#   parsed_page = Nokogiri::HTML(unparsed_page)
+#   byebug
+# end
 
