@@ -14,6 +14,17 @@ material = ["lapis", "Livro x", "caneta", "giz", "lousa", "cadeiras", "mesas"]
 status = ["doacao recebida", "aguardando doacao", "nenhum doador até agora"]
 payment_status = ["aprovado", "negado"]
 value_donated = (15..300).to_a
+# url = 'https://nova-escola-producao.s3.amazonaws.com/NrAJa6nzpQyZBVbrAa5DkFnZJAAcqpARg7ep8XCfvNh5Rbhsxt3hZst3DNwv/evasao-censo-escolar-revela-fracasso-da-escola-getty.jpg'
+School.destroy_all
+Teacher.destroy_all
+Project.destroy_all
+ProjectPhoto.destroy_all
+Donator.destroy_all
+Donation.destroy_all
+Payment.destroy_all
+
+
+
 puts 'seeding schools'
 10.times do
   school = School.new(
@@ -56,6 +67,11 @@ puts 'seeding projects'
   )
   project.save
 end
+
+  ProjectPhoto.create(
+    photo: 'https://nova-escola-producao.s3.amazonaws.com/NrAJa6nzpQyZBVbrAa5DkFnZJAAcqpARg7ep8XCfvNh5Rbhsxt3hZst3DNwv/evasao-censo-escolar-revela-fracasso-da-escola-getty.jpg',
+    project: Project.all.sample
+    )
 
 puts 'seeding donators'
 60.times do

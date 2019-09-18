@@ -5,6 +5,15 @@ class ProjectsController < ApplicationController
     # @projects = Project.all
     @projects = policy_scope(Project)
     # raise
+
+    if params[:keyword].present?
+      @projects = @projects.where("title ILIKE?", "%#{params[:keyword]}%")
+    end
+
+    if params[:category].present?
+      @projects = @projects.where(category: params[:category])
+    end
+
   end
 
   def show

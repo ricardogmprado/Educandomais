@@ -1,1 +1,32 @@
-_filterform.html.erb
+<div class="filter-form">
+<%= form_tag projects_path, method: :get do %>
+  <div class="keyword-filter" id="filter-input">
+    <%= text_field_tag :keyword,
+      params[:keyword],
+      class: "form-control",
+      placeholder: "Palavra-chave"%>
+  </div>
+
+  <div class="category-filter" id="filter-input">
+    <%= text_field_tag :category,
+      params[:category],
+      class: "form-control",
+      placeholder: "Categoria do projeto"
+
+    %>
+  </div>
+
+  <div class="category-filter" id="filter-input">
+    <%= text_field_tag :urgency,
+      params[:urgency],
+      class: "form-control",
+      placeholder: "Nível de urgência"
+
+    %>
+  </div>
+
+  <div class="filter-btn" id="filter-input">
+    <%= submit_tag "Buscar", class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>
