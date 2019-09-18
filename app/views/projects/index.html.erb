@@ -11,12 +11,12 @@
     </div>
     <% if teacher_signed_in? %>
     <div class="project-new-btn">
-      <a class="btn btn-flat mr-4" href="/projects/new">Criar novo projeto</a>
+      <a class="btn btn-flat" href="/projects/new"><i class=" mr-2 fas fa-plus"></i>Criar novo projeto</a>
     </div>
     <% end %>
   </div>
   <div class="project-filters">
-
+  <%= render 'filterform' %>
   </div>
   <div class="project-index">
       <div class="project-cards">
@@ -26,12 +26,19 @@
                no photo
             <% else %>
               <div class="project-img">
-                <%= cl_image_tag project.project_photos[0].photo, crop: :fill, height: 350 %>
+                <%= cl_image_tag project.project_photos[0].photo%>
               </div>
             <% end %>
-            <h1><%= link_to project.title, project_path(project) %></h1>
-            <p><%= project.category %></p>
-            <p><%= project.limit_date %></p>
+            <div class="card-title">
+            <h4><%= link_to project.title, project_path(project) %></h4>
+            <p class="card-subtitle mb-2 text-muted"><%= project.description[0..30] %>...[veja mais]</p>
+            </div>
+            <div class="project-items">
+            <p><i class="fas fa-pencil-ruler"></i>  <%= project.category %></p>
+            <p><i class="fas fa-hand-holding-heart"></i>  <%= project.material %></p>
+            <p><i class="fas fa-calculator"></i>  <%= project.quantity %> unidades </p>
+            <p><i class="far fa-calendar-alt"></i>   <%= project.limit_date.strftime("%d/%m/%Y") %></p>
+            </div>
           </div>
           <% end %>
       </div>
