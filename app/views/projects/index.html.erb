@@ -22,6 +22,7 @@
       <div class="project-cards">
         <% @projects.each do |project| %>
           <div class="project-card">
+        <%= link_to project_path(project) do  %>
             <% if project.project_photos[0].nil? %>
                no photo
             <% else %>
@@ -31,14 +32,20 @@
             <% end %>
             <div class="card-title">
             <h4><%= link_to project.title, project_path(project) %></h4>
+               <%= link_to project_path(project) do  %>
             <p class="card-subtitle mb-2 text-muted"><%= project.description[0..30] %>...[veja mais]</p>
             </div>
+            <% end %>
+             <%= link_to project_path(project) do  %>
             <div class="project-items">
             <p><i class="fas fa-pencil-ruler"></i>  <%= project.category %></p>
             <p><i class="fas fa-hand-holding-heart"></i>  <%= project.material %></p>
             <p><i class="fas fa-calculator"></i>  <%= project.quantity %> unidades </p>
             <p><i class="far fa-calendar-alt"></i>   <%= project.limit_date.strftime("%d/%m/%Y") %></p>
             </div>
+            <% end %>
+            <% end %>
+
           </div>
           <% end %>
       </div>
