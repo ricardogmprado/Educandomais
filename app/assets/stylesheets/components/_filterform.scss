@@ -1,11 +1,13 @@
-form{
+.filter-form {
+  form{
   display: flex;
   // padding-bottom: 16px;
 }
-
 input {
   text-align:center;
 }
+}
+
 
 #filter-input {
   margin-left: 24px;
