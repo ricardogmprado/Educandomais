@@ -1,46 +1,51 @@
-<p><%= link_to "Voltar a projetos", projects_path %></p>
-
-<div class="row">
+<%= render 'shared/navbar' %>
+<div class="project-show-title">
+  <h1><%= @project.title %></h1>
+</div>
+<div class='project-show-container'>
+  <div class='project-show-photos'>
   <% @project.project_photos.each do |p| %>
-  <div class="col-md-4 py-2">
-    <div class="act-photos">
-      <%= cl_image_tag p.photo, height: 200, crop: :fill, g: :face, class: 'project-photo' %>
+    <%= cl_image_tag p.photo, width: 200, height: 200, crop: :fill %>
+    <% end %>
+  </div>
+  <div class='project-show-details'>
+    <div class='project-show-details-one'>
+      <h1>Detalhes do projeto</h1>
+        <p>Material solicitado:<%= @project.material %></p>
+        <p>Quantidade solicitada<%= @project.quantity %></p>
+        <p>Preço médio:<%= @project.average_unit_price %></p>
+        <p>Categoria:<%= @project.category %></p>
+        <p>Ano letivo:<%= @project.school_year %></p>
+        <p>Data limite para doação:<%= @project.limit_date %></p>
+        <% if policy(@project).edit? %>
+          <p><%= link_to "Editar projeto", edit_project_path(@project)  %></p>
+        <% end %>
+      </div>
+      <div class='project-show-details-two'>
+        <p><%= link_to "Doe material", new_project_donation_path(@project) %></p>
+      </div>
+  </div>
+  <div class='project-show-teacher-donation'>
+    <div class='project-show-teacher'>
+      <h1>Perfil do professor</h1>
+        <p><%= @project.teacher.name %></p>
+        <p><%= @project.teacher.last_name %></p>
+        <p><%#= @project.teacher.school.name %></p>
+    </div>
+    <div class='project-show-donation'>
+        <% if (@project.teacher == current_teacher)%>
+          <h1>Doações recebidas</h1>
+          <% @project.donations.each do |donation| %>
+            <p><%= donation.donator.name %></p>
+            <p><%= donation.status %></p>
+            <p><%= donation.quantity_donated %></p>
+            <p><%= link_to "Editar status da doação", edit_project_donation_path(donation.project, donation) %></p>
+          <% end %>
+        <% end %>
     </div>
   </div>
-  <% end %>
 </div>
-
-<h1>Detalhes do projeto</h1>
-<h3><%= @project.title %></h3>
-<p>Material solicitado:<%= @project.material %></p>
-<p>Quantidade solicitada<%= @project.quantity %></p>
-<p>Preço médio:<%= @project.average_unit_price %></p>
-<p>Categoria:<%= @project.category %></p>
-<p>Ano letivo:<%= @project.school_year %></p>
-<p>Data limite para doação:<%= @project.limit_date %></p>
-<% if policy(@project).edit? %>
-<p><%= link_to "Editar projeto", edit_project_path(@project)  %></p>
-<% end %>
-
-
-<p><%= link_to "Doe material", new_project_donation_path(@project) %></p>
-
-
-<h1>Perfil do professor</h1>
-<p><%= @project.teacher.name %></p>
-<p><%= @project.teacher.last_name %></p>
-<p><%#= @project.teacher.school.name %></p>
-
-<% if (@project.teacher == current_teacher)%>
-<h1>Doações recebidas</h1>
-<% @project.donations.each do |donation| %>
-<p><%= donation.donator.name %></p>
-<p><%= donation.status %></p>
-<p><%= donation.quantity_donated %></p>
-<p><%= link_to "Editar status da doação", edit_project_donation_path(donation.project, donation) %></p>
-<% end %>
-<% end %>
-
+<%= render 'shared/footer' %>
 
 
 
