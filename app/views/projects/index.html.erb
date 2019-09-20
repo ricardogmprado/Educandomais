@@ -9,11 +9,9 @@
     <div class="project-title">
       <h1>Encontre projetos para apoiar</h1>
     </div>
-    <% if teacher_signed_in? %>
     <div class="project-new-btn">
       <a class="btn btn-flat" href="/projects/new"><i class=" mr-2 fas fa-plus"></i>Criar novo projeto</a>
     </div>
-    <% end %>
   </div>
   <div class="project-filters">
   <%= render 'filterform' %>
