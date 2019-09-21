@@ -1,0 +1,42 @@
+.teacher-login {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 76vh;
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+a:hover {
+  text-decoration: underline;
+}
+}
+
+.login-form {
+  // border: 2px solid #21302F;
+  border-radius: 10px;
+  padding: 24px;
+
+  h2 {
+  text-align: center;
+  margin-bottom: 16px;
+  }
+
+  .teacher-links {
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  input {
+    margin: 8px;
+    // width: 160px;
+  }
+
+  #basic-login {
+    input {
+     width: 160px ;
+    }
+  }
+}

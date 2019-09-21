@@ -1,6 +1,18 @@
 .navbar {
   justify-content: space-between;
-  background: white;
+  background: #ECD444 !important;
+  height: 80px;
+
+  .nav-link {
+    color: black !important;
+    margin-left: 24px;
+    margin-right: 24px;
+    font-size: 18px;
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
+  }
 }
 
 .navbar .navbar-collapse {
@@ -8,5 +20,9 @@
 }
 
 .navbar .navbar-brand img {
-  width: 40px;
+  width: 32px;
+}
+
+.navbar-brand {
+  font-size: 24px;
 }
