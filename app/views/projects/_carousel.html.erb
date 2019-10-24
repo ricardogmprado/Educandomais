@@ -1,13 +1,13 @@
  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <% @project.project_photos.each do |p| %>
-    <li data-target="#carouselExampleIndicators" data-slide-to="<%= p %>" class="active"></li>
+    <% @project.project_photos.each_with_index do |p, index| %>
+    <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class="<%= 'active' if p == @project.project_photos[0] %>"></li>
     <% end %>
   </ol>
-  <div class="carousel-inner">
-    <% @project.project_photos.each do |p| %>
-    <div class="carousel-item <%= 'active' if p == @project.project_photos[0] %>">
-      <%= cl_image_tag p.photo, width: 500, height: 400, crop: :fill %>
+  <div class="carousel-inner" style="width: 500px">
+    <% @project.project_photos.each do |pre| %>
+    <div class="carousel-item <%= 'active' if pre == @project.project_photos[0] %>">
+      <%= cl_image_tag pre.photo, width: 500, height: 400, crop: :fill %>
     </div>
     <% end %>
   </div>
@@ -20,3 +20,4 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+

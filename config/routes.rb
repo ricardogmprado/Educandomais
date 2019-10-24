@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :projects do
     resources :donations, only: [:new, :create, :index, :update, :edit]
-    resources :photos, only: [:create]
+    resources :project_photos, only: [:create]
     resources :donators, only: [:index]
   end
   resources :payments, only: [:new]
-
+  resources :project_photos, only: [:destroy]
   root to: 'pages#home'
   get 'institucional', to: 'pages#institucional', as: :institucional
 end

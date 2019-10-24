@@ -14,7 +14,7 @@ class ProjectPhotoPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.teacher == user
+    record.project.teacher == user
   end
 
   def update?
@@ -22,6 +22,6 @@ class ProjectPhotoPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.teacher == user
+    record.project.teacher == user
   end
 end
