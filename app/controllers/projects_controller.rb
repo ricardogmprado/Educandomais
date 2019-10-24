@@ -52,6 +52,10 @@ class ProjectsController < ApplicationController
     # raise
     # @project.teacher = @teacher
     authorize @project
+      if params[:project_photos].nil?
+      else
+      save_photos
+      end
     if @project.update(project_params)
       redirect_to project_path(@project), notice: 'Seu projeto foi atualizado'
     else
@@ -81,6 +85,7 @@ class ProjectsController < ApplicationController
   end
 
   def save_photos
+    # raise
       params[:project_photos].each do |photo|
       project_photo = ProjectPhoto.new
       project_photo.photo = photo

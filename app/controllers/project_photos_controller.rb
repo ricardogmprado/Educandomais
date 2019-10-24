@@ -18,7 +18,6 @@ class ProjectPhotosController < ApplicationController
     @project = Project.find(params[:project_id])
     @project_photo.project = @project
     authorize @project_photo
-
     if @project_photo.save
       redirect_to project_path(@project)
     else
@@ -26,9 +25,16 @@ class ProjectPhotosController < ApplicationController
     end
   end
 
+  def update
+    @project_photo = ProjectPhoto.find(params[:id])
+    authorize @project_photo
+  end
+
   def destroy
     @project_photo = ProjectPhoto.find(params[:id])
     authorize @project_photo
+    @project_photo.destroy
+    redirect_to edit_project_path(@project_photo.project)
   end
 
   private

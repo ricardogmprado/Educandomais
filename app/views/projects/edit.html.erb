@@ -10,7 +10,11 @@
     <%= f.input :school_year%>
     <%= f.input :limit_date %>
     <%= f.simple_fields_for :photo, ProjectPhoto.new do |photo_form| %>
-    <%= photo_form.file_field :photo, multiple: true, name: "project_photos[]" %>
+      <%= photo_form.file_field :photo, multiple: true, name: "project_photos[]" %>
+    <% end %>
+    <% @project.project_photos.each do |photo|%>
+      <p><%= cl_image_tag photo.photo, width: 500, height: 400, crop: :fill %></p>
+        <%= link_to "delete", project_photo_path(photo), method: :delete %>
     <% end %>
     <%= f.button :submit, class: 'btn btn-outline-success' %>
   <% end %>
