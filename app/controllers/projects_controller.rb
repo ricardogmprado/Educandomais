@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
       @projects = @projects.where(category: params[:category])
     end
 
+    # raise
   end
 
   def show

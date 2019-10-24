@@ -61,7 +61,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", ">= 4.7.1"
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
-gem 'simple_form'
+gem "simple_form", ">= 5.0.0"
 gem 'faker'
 gem 'nokogiri'
 gem 'pundit'
