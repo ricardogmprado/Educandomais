@@ -13,17 +13,11 @@ class Project < ApplicationRecord
 
   accepts_nested_attributes_for :project_photos
 
-  def completed_project(quantity, total_donations)
-    if total_donations > quantity
-      status = "Finalizado"
-    end
+  after_update :complete_project
+
+  def complete_project
+    self.status = "Finalizado" if self.total_donations >= self.quantity
+    self.save if self.status_changed?
   end
 
-  def total_donations
-    sum = 0
-    donations.each do |donation|
-      sum += donation.quantity_donated
-    end
-    sum
-  end
 end
