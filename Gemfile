@@ -65,7 +65,7 @@ gem "simple_form", ">= 5.0.0"
 gem 'faker'
 gem 'nokogiri'
 gem 'pundit'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 gem 'cloudinary', '~> 1.9.1'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'webpacker'
